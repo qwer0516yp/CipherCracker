@@ -65,4 +65,19 @@ public class AesGcmManager : IAesGcmManager
 
         return Decrypt(encryptedBlockBase64.Base64StringToBytes(), ivBase64.Base64StringToBytes()).ToUtf8String();
     }
+
+    public string EncryptBlockHex(string plainText, bool isIv12NullBytes, out string ivHex)
+    {
+        var ivBytes = new byte[12];
+        if (!isIv12NullBytes)
+            ivBytes = CryptoUtils.GenerateIvBytes();
+
+        ivHex = ivBytes.ToHexString();
+        return Encrypt(Encoding.UTF8.GetBytes(plainText), ivBytes).ToHexString();
+    }
+
+    public string DecryptBlockHex(string encryptedBlockHex, string ivHex)
+    {
+        return Decrypt(encryptedBlockHex.HexStringToBytes(), ivHex.HexStringToBytes()).ToUtf8String();
+    }
 }
