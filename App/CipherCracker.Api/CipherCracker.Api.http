@@ -1,0 +1,6 @@
+@CipherCracker.Api_HostAddress = http://localhost:5043
+
+GET {{CipherCracker.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
