@@ -1,3 +1,8 @@
+using CipherCracker.Api;
+using CipherCracker.Api.Models;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -35,6 +40,25 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+var jsonSerializerOptions = new JsonSerializerOptions
+{
+    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+};
+
+app.MapPost("/aesgcm/encrypt", (AesGcmEncryptRequest request) => 
+{
+    var aesGcmService = new AesGcmService();
+    var response = aesGcmService.ProcessEncryptionResquest(request);
+    return Results.Json(response, jsonSerializerOptions);
+});
+
+app.MapPost("/aesgcm/decrypt", (AesGcmDecryptRequest request) =>
+{
+    var aesGcmService = new AesGcmService();
+    var response = aesGcmService.ProcessDecryptionResquest(request);
+    return Results.Json(response, jsonSerializerOptions);
+});
 
 app.Run();
 
