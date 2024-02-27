@@ -9,7 +9,18 @@
     <Description>A .NET 8 library that provides a series of basic encryption and decryption utilities.</Description>
     <PackageTags>dotnet8;BouncyCastle;Cryptography</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Authors>Owen Yuan</Authors>
+    <PackageId>CipherCracker.ClassLibrary</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.1-alpha</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
