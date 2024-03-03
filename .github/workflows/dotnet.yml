@@ -23,6 +23,7 @@ jobs:
           dotnet-version: 8.0.x
       - name: Restore dependencies
         run: dotnet restore
+        working-directory: App/CipherCracker.Api
       - name: Build
         run: dotnet build --no-restore
       - name: Test
