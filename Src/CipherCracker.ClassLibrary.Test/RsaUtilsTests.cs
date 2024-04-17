@@ -89,7 +89,7 @@ Wd0wVFN6m331R5NEmhufGokW9JdJhPRS
     }
 
     [Fact]
-    public void LoadPrivateKeyFromString_unencryptedRsaPrivatePkcs8_resPrivatepkcs1_Success()
+    public void LoadPrivateKeyFromString_unencryptedRsaPrivatePkcs8_rsaPrivatepkcs1_Success()
     {
         var testRsaPrivatePkcs1 = @"-----BEGIN RSA PRIVATE KEY-----
 MIIEowIBAAKCAQEAonhD9V3sWGwdtkbIQixmgIj2kuTtZ2hiaLyL8QvpyeFbCyEG
