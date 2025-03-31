@@ -8,6 +8,7 @@ public class RsaUtilsTests
      * 1. openssl req -x509 -newkey rsa:2048 -keyout "encryptedRsaPrivate_pkcs8.pem" -passout pass:test -out "selfSignedX509CertRsaPublic365Day2K.pem" -days 365 -subj /CN=OWEN/O=TEST/C=AU/ST=NSW/L=Sydney
      * 2. openssl rsa -in "encryptedRsaPrivate_pkcs8.pem" -out "unencryptedRsaPrivate_pkcs8.pem"
      * 3. openssl rsa -in "encryptedRsaPrivate_pkcs8.pem" -out "rsaPrivate_pkcs1.pem" -traditional
+     * 4. openssl x509 -pubkey -noout -in "selfSignedX509CertRsaPublic365Day2K.pem" -out "rsaPublic.pem"
      **************************************************************************************************************************/
 
     //This test simulates RsaUtils reading a self signed X509 certificate string
